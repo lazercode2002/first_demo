@@ -66,51 +66,117 @@ body {
 
 .car-image {
   position: absolute;
-  height: 60vh; /* Reduced image size */
+  height: 60vh;
   object-fit: contain;
-  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out, opacity 0.5s;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(var(--offset)) rotate(-90deg) scale(0.9);
+  scale: 0.9;
+  translate: 0 0;
+  rotate: -90deg;
 }
 
 .car-image.active {
-  opacity: 1;
   pointer-events: auto;
-  transform: translateX(var(--offset)) rotate(-90deg) scale(1);
+  scale: 1;
+  opacity: 1;
+  transition: scale 0.3s ease-in-out;
 }
 
 .car-image.active:hover {
-  transform: translateX(var(--offset)) rotate(-90deg) scale(1.05);
+  scale: 1.05;
+}
+
+/* Animations for direction */
+.carousel.right .car-image.outgoing {
+  animation: driveOutRight 1.2s forwards;
+}
+.carousel.left .car-image.outgoing {
+  animation: driveOutLeft 1.2s forwards;
+}
+.carousel.right .car-image.active {
+  animation: driveInRight 1.8s forwards;
+}
+.carousel.left .car-image.active {
+  animation: driveInLeft 1.8s forwards;
+}
+
+@keyframes driveOutRight {
+  0% { translate: 0 0; rotate: -90deg; opacity: 1; }
+  50% { translate: 0 0; rotate: -180deg; opacity: 1; }
+  99.9% { translate: 100vw 0; rotate: -180deg; opacity: 1; }
+  100% { translate: 100vw 0; rotate: -180deg; opacity: 0; }
+}
+
+@keyframes driveOutLeft {
+  0% { translate: 0 0; rotate: -90deg; opacity: 1; }
+  50% { translate: 0 0; rotate: 0deg; opacity: 1; }
+  99.9% { translate: -100vw 0; rotate: 0deg; opacity: 1; }
+  100% { translate: -100vw 0; rotate: 0deg; opacity: 0; }
+}
+
+@keyframes driveInRight {
+  0% { translate: -100vw 0; rotate: -180deg; opacity: 0; }
+  33.33% { translate: -100vw 0; rotate: -180deg; opacity: 0; }
+  33.34% { translate: -100vw 0; rotate: -180deg; opacity: 1; }
+  66.66% { translate: 0 0; rotate: -180deg; opacity: 1; }
+  100% { translate: 0 0; rotate: -90deg; opacity: 1; }
+}
+
+@keyframes driveInLeft {
+  0% { translate: 100vw 0; rotate: 0deg; opacity: 0; }
+  33.33% { translate: 100vw 0; rotate: 0deg; opacity: 0; }
+  33.34% { translate: 100vw 0; rotate: 0deg; opacity: 1; }
+  66.66% { translate: 0 0; rotate: 0deg; opacity: 1; }
+  100% { translate: 0 0; rotate: -90deg; opacity: 1; }
 }
 
 .carousel-btn {
   position: absolute;
   z-index: 4;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
-  cursor: pointer;
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .carousel-btn:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: #db0a40;
+  color: #ffffff;
+  border-color: #db0a40;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 15px 35px rgba(219, 10, 64, 0.35);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+.carousel-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.carousel-btn.prev:hover svg {
+  transform: translateX(-3px);
+}
+
+.carousel-btn.next:hover svg {
+  transform: translateX(3px);
 }
 
 .carousel-btn.prev {
-  left: 20px;
+  left: 40px;
 }
 
 .carousel-btn.next {
-  right: 20px;
+  right: 40px;
 }
 
 .logos-container {
