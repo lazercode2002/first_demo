@@ -1,0 +1,81 @@
+.engineering-section {
+  width: 100%;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+}
+
+.eng-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 100px;
+}
+
+.blueprint-container {
+  background-color: #f4f5f8; /* Blueprint paper color match */
+}
+
+.exploded-container {
+  background-color: #ffffff;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.eng-text-overlay {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  z-index: 10;
+}
+
+.eng-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #db0a40;
+  letter-spacing: 4px;
+  margin-bottom: 1rem;
+}
+
+.eng-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #0c1424;
+  letter-spacing: 5px;
+  margin-bottom: 1rem;
+}
+
+.eng-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #555555;
+  line-height: 1.6;
+}
+
+.eng-text-overlay.dark .eng-title {
+  color: #1a1a1a;
+}
+
+.eng-image-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+
+.eng-image-wrapper.full-width {
+  max-width: 1200px;
+}
+
+.eng-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}

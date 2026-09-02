@@ -1,0 +1,158 @@
+.specs-section {
+  background-color: #26272b;
+  color: #a4a5a7;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 2rem 3rem;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+
+.specs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.logo-small {
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 3px;
+}
+
+.car-model {
+  font-weight: 700;
+  color: #fff;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.unleash-container {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.unleash-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 20vw;
+  font-weight: 200;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  margin: 0;
+  line-height: 1;
+  letter-spacing: 1vw;
+}
+
+.specs-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  position: relative;
+  z-index: 5;
+  margin-top: 5rem;
+}
+
+.center-car-container {
+  position: absolute;
+  left: 0;
+  top: -10%;
+  width: 100%;
+  height: 120%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.car-top-view {
+  height: 100%;
+  object-fit: contain;
+  /* Adjust rotate depending on original image orientation */
+  transform: rotate(90deg);
+  filter: drop-shadow(0 30px 40px rgba(0,0,0,0.5));
+}
+
+.specs-left, .specs-right {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  z-index: 10;
+  max-width: 250px;
+}
+
+.specs-left {
+  text-align: left;
+}
+
+.specs-right {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.crosshair {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: -1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+p, li {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.motto {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.season-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.specs-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-transform: uppercase;
+  z-index: 10;
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.built-to-win {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-logo {
+  font-weight: 700;
+  color: #fff;
+}

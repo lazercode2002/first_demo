@@ -1,4 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
+import RedBullSpecs from './components/RedBullSpecs';
+import MaxVerstappenSection from './components/MaxVerstappenSection';
+import NextRaceSection from './components/NextRaceSection';
+import EngineeringSection from './components/EngineeringSection';
+import RainSection from './components/RainSection';
+import PartnersSection from './components/PartnersSection';
 
 const CARS = [
   { id: 1, filter: 'hue-rotate(0deg)' },
@@ -9,6 +16,34 @@ const CARS = [
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState('right');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
+
+    const observeElements = () => {
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    };
+
+    observeElements();
+
+    // Watch for new elements added to the DOM (fixes HMR and dynamic loading)
+    const mutationObserver = new MutationObserver(() => {
+      observeElements();
+    });
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
+  }, []);
 
   const nextSlide = () => {
     setDirection('right');
@@ -21,7 +56,9 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <div className="app-wrapper">
+      <Header />
+      <div className="container" id="discover">
       {/* Background Text */}
       <h1 className="background-text">Red Bull</h1>
 
@@ -72,6 +109,13 @@ function App() {
       <div className="tagline">
         GIVES YOU WINGS
       </div>
+      </div>
+      <RedBullSpecs />
+      <EngineeringSection />
+      <RainSection />
+      <MaxVerstappenSection />
+      <NextRaceSection />
+      <PartnersSection />
     </div>
   )
 }
